@@ -1,0 +1,15 @@
+<app-header [signedInUser]="signedInUser"></app-header>
+
+<div id="main-content">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <app-slidebar></app-slidebar>
+    </nav>
+    <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <lib-form-login (messageEvent)="receiveMessage($event)"></lib-form-login>
+    </main>
+  </div>
+  <div class="push"></div>
+</div>
+
+<lib-footer></lib-footer>

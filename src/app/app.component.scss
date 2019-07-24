@@ -1,0 +1,22 @@
+#main-content {
+  padding: 20px;
+  min-height: 100%;
+  margin: 0 auto -35px;
+}
+
+#main-content main {
+  margin-top: 70px;
+}
+
+.push {
+  height: 35px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 35px;
+  left: 0;
+  padding: 72px 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
