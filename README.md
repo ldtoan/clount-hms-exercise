@@ -1,27 +1,22 @@
-# TestingApp
+# Cloud HMS Exercise
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
+This project uses the third party library named my-first-angular-lib-toanle. There are 4 components in that library: Component Header, Component Left Sidebar,  Component Footer and Component Login.
 
-## Development server
+## Component Header
+This component allows user to pass a list of menu items, logo, user avatar corresponding to properties below:
+  - menu: string [].
+  - logo: string. // the logo url.
+  - avatar: string. // the avatar url.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Component Left Sidebar
+This component is an one level depth menu stayed in left position. It allows user to pass a list of menu items. The property name is menu and its type is an array of string.
 
-## Code scaffolding
+## Component Footer
+This component is a footer as its name and is a static content component.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Component Login
+- First note for this component is that it is the Reactive Form. So, in order to use this component, we need to import ReactiveFormsModule from the @angular/forms package and add it to your NgModule's imports array.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- This component includes 2 parts:
+  + Login button: When user click on the button, login dialog will be popped up.
+  + Login form: It allows user to enter username and password to login to the application. After login successfully, it will eimit an event named messageEvent and include username and password that user entered.
