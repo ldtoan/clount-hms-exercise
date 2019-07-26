@@ -1,6 +1,6 @@
 {
   "name": "my-first-angular-lib-toanle",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "toanle",
   "peerDependencies": {
     "@angular/common": "^8.1.2",

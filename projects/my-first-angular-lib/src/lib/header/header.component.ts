@@ -1,30 +1,32 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  Input,
+  AfterContentInit,
+  ContentChildren, 
+  QueryList
+} from '@angular/core';
+
+import { HeaderMenuDirective } from './header-menu-directive';
+import { HeaderAvatarDirective } from './header-avatar-directive';
+import { HeaderLogoDirective } from './header-logo-directive';
 
 @Component({
   selector: 'lib-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
-  private _isShowProfileMenu = false;
-  @Input() menu: string [] = [];
-  @Input() avatar: string;
-  @Input() logo: string;
-  @Input() username: string;
+export class HeaderComponent implements AfterContentInit {
+  @ContentChildren(HeaderMenuDirective) menu: QueryList<HeaderMenuDirective>;
+  @ContentChildren(HeaderAvatarDirective) avatar: QueryList<HeaderAvatarDirective>;
+  @ContentChildren(HeaderLogoDirective) logo: QueryList<HeaderLogoDirective>;
 
-  get isShowProfileMenu(): boolean {
-    return this._isShowProfileMenu;
-  }
+  menuTemplate: HeaderMenuDirective | null;
+  avatarTemplate: HeaderAvatarDirective | null;
+  logoTemplate: HeaderLogoDirective | null;
 
-  get showProfileMenuText(): string {
-    return this._isShowProfileMenu ? 'show': '';
-  }
-
-  get isUserSignedIn() : boolean {
-    return this.username !== '';
-  }
-
-  onProfileClick = () => {
-    this._isShowProfileMenu = !this._isShowProfileMenu;
+  ngAfterContentInit() {
+    this.menuTemplate = this.menu.first;
+    this.avatarTemplate = this.avatar.first;
+    this.logoTemplate = this.logo.first;
   }
 }

@@ -1,2 +1,41 @@
-<lib-header [logo]="logo" [avatar]="avatar" [menu]="menu" [username]="signedInUser">
+<lib-header>
+  <ng-template headerLogo>
+    <div id="company-logo">
+      <img src="{{ logo }}" alt="logo" width="55">
+    </div>
+  </ng-template>
+
+  <ng-template headerMenu>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </ng-template>
+
+  <ng-template headerAvatar>
+    <div *ngIf="isUserSignedIn; else loginButton" class="nav-item dropdown {{ showProfileMenuText }}">
+      <a class="nav-link" href="javascript:void(0);" data-toggle="dropdown" role="button" aria-haspopup="true"
+        [attr.aria-expanded]="isShowProfileMenu">
+        <img src="{{ avatar }}" alt="avatar" id="avatar" width="40px" height="40px" (click)="onProfileClick()">
+        <span class="user-info">{{ signedInUser }}</span>
+      </a>
+
+      <div class="dropdown-menu {{ showProfileMenuText }}">
+        <a *ngFor="let avatarMenuItem of avatarMenu" href="javascript:void(0);" class="dropdown-item notify-item">
+          <span>{{ avatarMenuItem }}</span>
+        </a>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #loginButton>
+      <lib-form-login (messageEvent)="receiveMessage($event)"></lib-form-login>
+  </ng-template>
 </lib-header>

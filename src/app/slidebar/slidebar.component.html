@@ -1,1 +1,12 @@
-<lib-slidebar [menu]="menu"></lib-slidebar>
+<lib-slidebar>
+  <ng-template slideBarMenu>
+    <ul class="nav flex-column">
+      <li class="nav-item" *ngFor="let menuItem of menu">
+        <a class="nav-link" href="javascript:void(0)">
+          <span></span>
+          {{menuItem}}
+        </a>
+      </li>
+    </ul>
+  </ng-template>
+</lib-slidebar>

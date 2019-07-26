@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { MyFirstAngularLibModule } from 'my-first-angular-lib-toanle';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,10 +18,11 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     MyFirstAngularLibModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+  ]
 })
 export class AppModule { }

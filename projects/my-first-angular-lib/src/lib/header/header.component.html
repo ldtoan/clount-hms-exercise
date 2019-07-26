@@ -1,46 +1,10 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div id="company-logo">
-      <img src="{{ logo }}" alt="logo" width="55">
-    </div>
+    <ng-template [ngTemplateOutlet]="logoTemplate?.templateRenf"></ng-template>
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item" *ngFor="let menuItem of menu">
-            <a class="nav-link" href="javascript:void(0);">{{ menuItem }}</a>
-        </li>
-      </ul>
-
-      <div *ngIf="isUserSignedIn" class="nav-item dropdown {{ showProfileMenuText }}">
-        <a class="nav-link" href="javascript:void(0);" data-toggle="dropdown" role="button" aria-haspopup="true"
-          [attr.aria-expanded]="isShowProfileMenu">
-          <img src="{{ avatar }}" alt="avatar" id="avatar" width="40px" height="40px" (click)="onProfileClick()">
-          <span class="user-info">{{ username }}</span>
-        </a>
-
-        <div class="dropdown-menu {{ showProfileMenuText }}">
-          <a href="javascript:void(0);" class="dropdown-item notify-item">
-            <i class="mdi mdi-account-circle mr-1"></i>
-            <span>My Account</span>
-          </a>
-          <a href="javascript:void(0);" class="dropdown-item notify-item">
-            <i class="mdi mdi-account-edit mr-1"></i>
-            <span>Setting</span>
-          </a>
-          <a href="javascript:void(0);" class="dropdown-item notify-item">
-            <i class="mdi mdi-lifebuoy mr-1"></i>
-            <span>Support</span>
-          </a>
-          <a href="javascript:void(0);" class="dropdown-item notify-item">
-            <i class="mdi mdi-lock-outline mr-1"></i>
-            <span>Lock Screen</span>
-          </a>
-          <a href="javascript:void(0);" class="dropdown-item notify-item">
-            <i class="mdi mdi-logout mr-1"></i>
-            <span>Sign out</span>
-          </a>
-        </div>
-      </div>
+      <ng-template [ngTemplateOutlet]="menuTemplate?.templateRenf"></ng-template>
+      <ng-template [ngTemplateOutlet]="avatarTemplate?.templateRenf"></ng-template>
     </div>
   </nav>
 </header>
